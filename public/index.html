@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Karma</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main>
+      <header class="top">
+        <div>
+          <h1>Tokens Tracker</h1>
+          <p class="lede">Сколько ещё осталось у Claude, Codex и Cursor.</p>
+        </div>
+        <div class="top-actions">
+          <p id="updated" class="updated">ещё не обновлялось</p>
+          <button id="refresh" type="button">Обновить</button>
+        </div>
+      </header>
+      <section id="board" class="board" aria-live="polite"></section>
+    </main>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

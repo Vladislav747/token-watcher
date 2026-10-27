@@ -1,0 +1,196 @@
+:root {
+  color-scheme: dark;
+  --bg: #12140f;
+  --bg-2: #1b1e16;
+  --ink: #f4f1e6;
+  --muted: #a39e90;
+  --line: rgba(244, 241, 230, 0.1);
+  --claude: #e3a36a;
+  --codex: #8fbf7a;
+  --cursor: #8eb4e8;
+  --ok: #b7d39a;
+  --warn: #e3c27a;
+  --bad: #e08a72;
+  --track: rgba(244, 241, 230, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 10% -10%, rgba(227, 163, 106, 0.16), transparent 60%),
+    radial-gradient(800px 380px at 100% 0%, rgba(142, 180, 232, 0.14), transparent 55%),
+    var(--bg);
+  color: var(--ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+main {
+  width: min(1120px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 36px 0 64px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+.lede {
+  margin: 10px 0 0;
+  color: var(--muted);
+}
+
+.top-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.updated {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+button {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover { border-color: rgba(244, 241, 230, 0.28); }
+button:disabled { opacity: 0.6; cursor: progress; }
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: rgba(27, 30, 22, 0.88);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 20px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.plan {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.headline {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.headline strong {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  line-height: 0.85;
+}
+
+.headline span {
+  color: var(--muted);
+}
+
+.card[data-id="claude"] .headline strong { color: var(--claude); }
+.card[data-id="codex"] .headline strong { color: var(--codex); }
+.card[data-id="cursor"] .headline strong { color: var(--cursor); }
+
+.meters { display: flex; flex-direction: column; gap: 14px; margin-top: auto; }
+
+.meter-top, .meter-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.meter-meta { color: var(--muted); margin-top: 6px; }
+
+.track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--track);
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.fill {
+  height: 100%;
+  width: 0;
+  border-radius: inherit;
+  background: var(--ok);
+}
+
+.fill.warn { background: var(--warn); }
+.fill.bad { background: var(--bad); }
+
+.note {
+  margin: auto 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.account, .notice {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 900px) {
+  h1 { font-size: 44px; }
+  .top, .board { display: grid; }
+  .board { grid-template-columns: 1fr; }
+  .top-actions { align-items: flex-start; }
+}
